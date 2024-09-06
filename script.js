@@ -1,10 +1,25 @@
 let humanScore = 0;
 let computerScore = 0;
-console.log(getComputerChoice());
-console.log(getHumanChoice());
+let hChoice = getHumanChoice();
+let cChoice = getComputerChoice();
+playRound(hChoice, cChoice);
+console.log(humanScore + " " + computerScore);
 
 function playRound(humanChoice, computerChoice){
-    
+    if(humanChoice === computerChoice){
+        console.log("Tie! " + humanChoice + " versus " + computerChoice);
+        return;
+    }
+    if((humanChoice === "rock" && computerChoice == "paper") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "rock")){
+        console.log("Loss! " + humanChoice + " loses to " + computerChoice);
+        computerScore++;
+        return;
+    }
+    if((humanChoice === "rock" && computerChoice == "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")){
+        console.log("Win! " + humanChoice + " wins against " + computerChoice);
+        humanScore++;
+        return;
+    }
     return;
 }
 
