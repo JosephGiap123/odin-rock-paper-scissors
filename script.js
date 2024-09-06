@@ -1,9 +1,26 @@
 let humanScore = 0;
 let computerScore = 0;
-let hChoice = getHumanChoice();
-let cChoice = getComputerChoice();
-playRound(hChoice, cChoice);
-console.log(humanScore + " " + computerScore);
+playGame();
+
+
+function playGame(){
+    humanScore = 0;
+    computerScore = 0;
+    for(let i = 0; i < 5; i++){
+        let hChoice = getHumanChoice();
+        let cChoice = getComputerChoice();
+        playRound(hChoice, cChoice);
+    }
+    if(humanScore === computerScore){
+        console.log("TIE");
+    }
+    else if(humanScore > computerScore){
+        console.log("You win!");
+    }
+    else{
+        console.log("You lose...");
+    }
+}
 
 function playRound(humanChoice, computerChoice){
     if(humanChoice === computerChoice){
