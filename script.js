@@ -1,24 +1,33 @@
 let humanScore = 0;
 let computerScore = 0;
-console.log(humanScore);
-console.log(computerScore);
-console.log(getHumanChoice());
 console.log(getComputerChoice());
+console.log(getHumanChoice());
+
+function playRound(humanChoice, computerChoice){
+    
+    return;
+}
 
 
 function getComputerChoice(){
-    return Math.floor((Math.random()*3)+1)
+    let randomNumber = Math.floor((Math.random()*3)+1);
+    switch(randomNumber){
+        case 1:
+            return "rock";
+        case 2:
+            return "paper";
+        case 3:
+            return "scissors";
+        default:
+            return "NONE";
+    }
 }
 
 function getHumanChoice(){
-    let humanChoice = prompt("Choose Rock, Paper or Scissors (Type in Rock, Paper or Scissors");
-    switch(humanChoice.toLowerCase()){
-        case "rock":
-            return 1;
-        case "paper":
-            return 2;
-        case "scissors":
-            return 3;
-        default: return 1;
+    let humanChoice = "null";
+    while(humanChoice != "rock" && humanChoice != "paper" && humanChoice != "scissors")
+    {
+        humanChoice = prompt("Choose Rock, Paper or Scissors (Type in Rock, Paper or Scissors").toLowerCase();
     }
+    return humanChoice;
 }
